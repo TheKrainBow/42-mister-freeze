@@ -16,6 +16,7 @@ import (
 )
 
 const CONFIG_PATH = "./config.yml"
+const CAMPUS_ID = "41"
 
 func init42FreezeAPI() error {
 	APIClient, err := apiManager.NewAPIClient(config.FTFreeze, apiManager.APIClientInput{
@@ -84,7 +85,7 @@ func getAllUsers(data RequestData) RequestData {
 	cleanDuplicate := map[string]bool{}
 	page := 0
 	for {
-		url := fmt.Sprintf("/quests/37/quests_users?filter[campus_id]=41&filter[validated]=false&page[size]=100&page[number]=%d", page)
+		url := fmt.Sprintf("/quests/37/quests_users?filter[campus_id]=%s&filter[validated]=false&page[size]=100&page[number]=%d", CAMPUS_ID, page)
 		resp, err := apiManager.GetClient(config.FTv2).Get(url)
 		if err != nil {
 			os.Exit(1)

@@ -1,14 +1,13 @@
 
 # 42 Freeze API Tool
 
-This Go application interacts with the **42 Freeze API** to collect user data from the **42 API**, perform operations on users (such as exclusion and freeze), and send the results as a JSON payload to the **42 Freeze API**.
+This Go application interacts with the **42 Freeze API** to bulk freeze all user of a campus.
 
 ## Prerequisites
 
 To run this project, you'll need:
 
 - Go 1.16 or later
-- The `mister-freeze` package dependencies (referenced in the code)
 - A valid `config.yml` file containing the necessary API credentials for the **42 API** and **42 Freeze API**
 
 ## Setup
@@ -54,6 +53,8 @@ ApiV2:
   Secret: "your-api-secret"
   Scope: "your-api-scope"
 ```
+
+After creating config.yml, you can edit main.go for CONFIG_PATH and CAMPUS_ID
 
 ### Step 3: Build and Run the Application
 
