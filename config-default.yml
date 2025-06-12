@@ -1,0 +1,21 @@
+# This file is the default config
+# Use it as template to create your own config.yml
+
+42apiV2:
+    tokenUrl: "https://api.intra.42.fr/oauth/token"
+    endpoint: "https://api.intra.42.fr/v2"
+    testpath: "/campus/41"
+    uid: "YOUR_42API_APP_UID"
+    secret: "YOUR_42API_APP_TOKEN"
+    scope: "public"
+
+42Freeze:
+    autoPost: false
+    tokenUrl: "https://auth.42.fr/auth/realms/staff-42/protocol/openid-connect/token"
+    endpoint: "https://freeze.42.fr/api/v2"
+    testpath: "/users/me"
+    uid: "YOUR_42API_APP_UID"
+    secret: "YOUR_42API_APP_TOKEN"
+    username: "YOUR_42STAFF_USERNAME"
+    password: "YOUR_42STAFF_PASSWORD"
+
