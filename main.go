@@ -11,8 +11,9 @@ import (
 	"strings"
 	"time"
 
-	"mister-freeze/apiManager"
 	"mister-freeze/config"
+
+	apiManager "github.com/TheKrainBow/go-api"
 )
 
 const CONFIG_PATH = "./config.yml"
