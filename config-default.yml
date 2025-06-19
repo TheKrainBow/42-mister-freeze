@@ -1,7 +1,7 @@
 # This file is the default config
 # Use it as template to create your own config.yml
 
-42apiV2:
+42API:
     tokenUrl: "https://api.intra.42.fr/oauth/token"
     endpoint: "https://api.intra.42.fr/v2"
     testpath: "/campus/41"

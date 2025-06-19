@@ -29,7 +29,7 @@ type configFile struct {
 		Scope              string   `yaml:"scope"`
 		CampusID           string   `yaml:"campusId"`
 		ApprenticeProjects []string `yaml:"apprenticeProjects"`
-	} `yaml:"42apiV2"`
+	} `yaml:"42API"`
 	Freeze42 struct {
 		AutoPost bool   `yaml:"autoPost"`
 		TokenUrl string `yaml:"tokenUrl"`
