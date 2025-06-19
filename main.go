@@ -183,15 +183,16 @@ func askUserPayloadInfo() RequestData {
 func askForExcludedUserList(prompt string) []string {
 	var input string
 	scanner := bufio.NewScanner(os.Stdin)
-	for {
-		// Print prompt
-		fmt.Print(prompt)
-		scanner.Scan()
-		input = scanner.Text()
-
-		userList := splitAndTrim(input)
-		return userList
+	// Print prompt
+	fmt.Print(prompt)
+	if !scanner.Scan() {
+		// Handle EOF or scanner error
+		fmt.Println("\nInput closed. Exiting.")
+		os.Exit(1) // or return "" if you prefer
 	}
+	input = scanner.Text()
+	userList := splitAndTrim(input)
+	return userList
 }
 
 // splitAndTrim splits the input by commas and trims spaces from each element
@@ -214,7 +215,11 @@ func askForValidReason(prompt string) string {
 	scanner := bufio.NewScanner(os.Stdin)
 	for {
 		fmt.Print(prompt)
-		scanner.Scan()
+		if !scanner.Scan() {
+			// Handle EOF or scanner error
+			fmt.Println("\nInput closed. Exiting.")
+			os.Exit(1) // or return "" if you prefer
+		}
 		input = scanner.Text()
 		input = strings.ToLower(input)
 		if contains(validReasons, input) {
@@ -240,7 +245,11 @@ func askForValidDate(prompt string) string {
 	scanner := bufio.NewScanner(os.Stdin)
 	for {
 		fmt.Print(prompt)
-		scanner.Scan()
+		if !scanner.Scan() {
+			// Handle EOF or scanner error
+			fmt.Println("\nInput closed. Exiting.")
+			os.Exit(1) // or return "" if you prefer
+		}
 		input = scanner.Text()
 		if isValidDate(input) {
 			return input
@@ -256,7 +265,11 @@ func askForValidEndDate(prompt string, beginDate string) string {
 	scanner := bufio.NewScanner(os.Stdin)
 	for {
 		fmt.Print(prompt)
-		scanner.Scan()
+		if !scanner.Scan() {
+			// Handle EOF or scanner error
+			fmt.Println("\nInput closed. Exiting.")
+			os.Exit(1) // or return "" if you prefer
+		}
 		input = scanner.Text()
 		if isValidDate(input) {
 			endDateTime, _ := time.Parse("2006-01-02", input)
@@ -283,7 +296,11 @@ func askForValidBool(prompt string) bool {
 	scanner := bufio.NewScanner(os.Stdin)
 	for {
 		fmt.Print(prompt)
-		scanner.Scan()
+		if !scanner.Scan() {
+			// Handle EOF or scanner error
+			fmt.Println("\nInput closed. Exiting.")
+			os.Exit(1) // or return "" if you prefer
+		}
 		input = scanner.Text()
 		input = strings.ToLower(input)
 		if isValidBool(input) {
@@ -323,7 +340,11 @@ func askForNonEmptyField(prompt string) string {
 	scanner := bufio.NewScanner(os.Stdin)
 	for {
 		fmt.Print(prompt)
-		scanner.Scan()
+		if !scanner.Scan() {
+			// Handle EOF or scanner error
+			fmt.Println("\nInput closed. Exiting.")
+			os.Exit(1) // or return "" if you prefer
+		}
 		input = scanner.Text()
 		if input != "" {
 			return input
